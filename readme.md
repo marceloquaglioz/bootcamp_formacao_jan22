@@ -10,3 +10,6 @@ Repositório de códigos do bootcamp ED de jan/22
 * André Sionek - [GitHub](https://github.com/andresionek91)
 * Rhuan Lima - [GitHub](https://github.com/rhuanlima)
 
+## Calendário:
+
+- 3/fev (Quinta): Aula Git
