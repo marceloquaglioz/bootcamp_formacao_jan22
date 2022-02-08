@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: "pg_container"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=test_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./db:/var/lib/postgresql/data/"
+
+  bi:
+    image: metabase/metabase
+    ports:
+      - "3000:3000"
+    links:
+      - db
+
+# docker run -d -p 3000:3000 --name metabase metabase/metabase
+#
+# subir os serviços (no caso do postgresql)
+# docker-compose up db
+# para matar os serviços
+# docker-compose down
+# subir os serviços sem prender o terminal
+# docker-compose up -d db
+# para ver os containers
+# docker-compose ps
+
+# Observação: a flag links foi descontinuada a partir da versão 3 do Docker Compose, 
+# pode ser substituída por depends_on ou network pelo que vi
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#links
