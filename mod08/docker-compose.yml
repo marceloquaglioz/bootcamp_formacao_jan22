@@ -1,0 +1,15 @@
+version: "3"
+services:
+    jenkins:
+        image: pyjenkins
+        container_name: "jenkins_msq"
+        ports:
+            - "8000:8080"
+            - "50000:50000"
+        volumes:
+            - "./jenkins_home:/var/jenkins_home"
+            - "./cambio:/cambio"
+
+# senha de root do ambiente criado pelo docker: b5167b88adc34dbe918ab88206a9439a
+# como usar a imagem: docker ps (pegar o container id)
+# docker exec -it {container id} bash -l (abre um terminal na imagem)
